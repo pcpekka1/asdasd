@@ -1,0 +1,54 @@
+  if(cmd === `${prefix}invite`) {
+    message.channel.send("Szia! Elküldtem privátba a bot meghívó linkjét! " + message.author)
+    var embed = new Discord.RichEmbed()
+    .setColor("RED")
+    .setTitle("Meghívó")
+    .setDescription("**Szia!** :wave:\nItt a bot meghívó link: http://bot.pekkabot.tk/PekkaBot/invite\nKöszi, ha behívsz a szerveredre!")
+    .setTimestamp()
+
+    message.author.send(embed)
+}
+if(cmd === `${prefix}elkezd`) {
+  var embed = new Discord.RichEmbed()
+  .setColor("BLUE")
+  .setTitle("Lista:")
+  .setDescription("**Moderáció**\n **Egyéb**\n **Zene**")
+  .addField(" További parancsokért írd be ezt:", "`.elkezd [kategória]`")
+  .setFooter("Ezeket találtam!")
+  .setTimestamp()
+
+  message.channel.send(embed)
+}
+
+
+
+
+
+
+const { RichEmbed } = require("discord.js")
+const { cyan } = require("../../colours.json");
+const client = new discord.Client({
+
+  module.exports = {
+    name: "szerverinfo",
+    category: "moderation",
+    description: "xd",
+    usage: ".szerverinfo",
+    run: (client, message, args) => {
+
+      let sEmbed = new RichEmbed()
+          .setColor(cyan)
+          .setTitle("Server Info")
+          .setThumbnail(message.guild.iconURL)
+          .setAuthor(`${message.guild.name} Info`, message.guild.iconURL)
+          .addField("**Guild Name:**", `${message.guild.name}`, true)
+          .addField("**Guild Owner:**", `${message.guild.owner}`, true)
+          .addField("**Member Count:**", `${message.guild.memberCount}`, true)
+          .addField("**Role Count:**", `${message.guild.roles.size}`, true)
+          .setFooter(`TestBot | Footer`, bot.user.displayAvatarURL);
+      message.channel.send(sEmbed);
+
+
+
+  }
+}
